@@ -1,21 +1,20 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
+import { UUID } from 'crypto';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity()
-class Users {
-    @PrimaryGeneratedColumn()
-    id: number;
+@Entity({ name: 'user' })
+export class User {
+  @PrimaryGeneratedColumn()
+  id?: UUID;
 
-    @Column()
-    username: string;
+  @Column()
+  email: string;
 
-    @Column()
-    email: string;
+  @Column()
+  password: string;
 
-    @Column()
-    password: string;
+  @Column()
+  firstName: string;
 
-    @CreateDateColumn({ type: 'timestamp' })
-    created_at: Date;
+  @Column()
+  lastName: string;
 }
-
-export default Users;
